@@ -1059,8 +1059,11 @@ function showSuccessModal() {
                     .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
                     .join('&');
                 
-                const lineUrl = `https://line.me/R/ti/p/@example${utmString ? '?' + utmString : ''}`;
+                const lineUrl = `/line${utmString ? '?' + utmString : ''}`;
+                // 新しいタブで開きたいなら
                 window.open(lineUrl, '_blank');
+                // 同タブでよければ
+                // window.location.href = lineUrl;
                 trackEvent('auto_redirect', 'line');
             }
         }, 8000);
