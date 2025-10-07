@@ -1058,26 +1058,24 @@ function toggleFAQ(button) {
     }
 }
 
-// CTA Click Handler
+// CTA Click Handler（1クリックでLINE遷移に変更）
 function handleCTAClick(section) {
     trackEvent('cta_click', section);
-    
-    const buttons = document.querySelectorAll(`[onclick*="${section}"]`);
-    buttons.forEach(button => {
-        button.disabled = true;
-        button.style.opacity = '0.7';
-        button.textContent = '処理中...';
+
+    // UTMパラメータの保持・付与
+    const params = new URLSearchParams(window.location.search);
+    ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(k => {
+        const v = localStorage.getItem(k) || params.get(k);
+        if (v && !params.has(k)) params.set(k, v);
     });
-    
-    setTimeout(() => {
-        showSuccessModal();
-        buttons.forEach(button => {
-            button.disabled = false;
-            button.style.opacity = '1';
-            button.textContent = button.dataset.originalText || '今すぐ無料で体験してみる';
-        });
-    }, 1500);
+
+    // LINE公式アカウントへの遷移URL
+    const lineUrl = `/line${params.toString() ? '?' + params.toString() : ''}`;
+
+    // 同タブで遷移（iOSアプリ遷移の安定性を考慮）
+    window.location.href = lineUrl;
 }
+
 
 // Success Modal
 function showSuccessModal() {
