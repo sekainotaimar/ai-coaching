@@ -1012,22 +1012,38 @@ function captureUTMParameters() {
     }
 }
 
-// Beta Counter Animation
+// Beta Counter Animation  ←（新しいコード）
 function updateBetaCount() {
+    // 1) 既存の値を localStorage から読む（当日内は固定）
+    const KEY = 'beta_left_value';
+    const EXP = 'beta_left_expire';
     const now = new Date();
-    const startDate = new Date('2024-10-01');
-    const daysPassed = Math.floor((now - startDate) / (1000 * 60 * 60 * 24));
-    
-    let currentCount = Math.max(1, 30 - Math.floor(daysPassed * 0.5) - Math.floor(Math.random() * 3));
+
+    // その日の終わり（ローカル時間）に期限を設定
+    const endOfDay = new Date();
+    endOfDay.setHours(23, 59, 59, 999);
+
+    let stored = Number(localStorage.getItem(KEY));
+    let expire = Number(localStorage.getItem(EXP));
+
+    // 2) 期限切れ or 未設定なら、3〜5の範囲で乱数を採用して保存
+    if (!stored || !expire || now.getTime() > expire) {
+        stored = Math.floor(Math.random() * 3) + 3; // 3,4,5 のいずれか
+        localStorage.setItem(KEY, String(stored));
+        localStorage.setItem(EXP, String(endOfDay.getTime()));
+    }
+
+    // 3) 表示を更新
+    const currentCount = stored;
     window.BETA_LEFT = currentCount;
-    
-    const elements = document.querySelectorAll('[data-var="beta-count"]');
-    elements.forEach(el => {
+
+    document.querySelectorAll('[data-var="beta-count"]').forEach(el => {
         el.textContent = currentCount;
     });
-    
+
     return currentCount;
 }
+
 
 // FAQ Toggle Functionality
 function toggleFAQ(button) {
