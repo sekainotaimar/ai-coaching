@@ -742,7 +742,10 @@ body {
                         β版残り枠：<span data-var="beta-count" id="betaCount">17</span>名
                     </div>
                 </div>
-                <button class="btn btn--secondary" onclick="handleCTAClick('secondary')">当日の流れ（3分でわかる）</button>
+                <!-- 変更点：<button> を <a> に、JSは nav 計測＋#mechanism にスムーズスクロール -->
+                <a class="btn btn--secondary" href="#mechanism" onclick="trackEvent('nav_mechanism','hero')">
+                  サービス内容（10秒でわかる）
+                </a>
             </div>
         </div>
     </section>
