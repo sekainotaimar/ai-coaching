@@ -1,232 +1,1284 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LINEで続く。30日AIコーチ｜習慣化に挫折した人の最後の砦</title>
-  <meta name="description" content="LINEで続く。30日AIコーチ。習慣化に挫折した人のための、毎日リマインド＋励ましメッセージ付きの伴走プログラム。β版980円/月、14日返金保証。" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 改善点：メタディスクリプションを3秒理解可能に具体化 -->
+    <meta name="description" content="LINEで続く。30日AIコーチ。先延ばし癖・三日坊主を克服。毎朝の目標宣言→日中の励まし→夜の振り返りで習慣化を仕組み化。β版¥980/月、14日返金保証。">
+    <!-- 改善点：タイトルを機能重視に変更 -->
+    <title>LINEで続く。30日AIコーチ｜先延ばし癖・三日坊主を克服</title>
+    
+    <!-- GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+    
+    <!-- Meta Pixel -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window,document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', 'META_PIXEL_ID');
+        fbq('track', 'PageView');
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-  <!-- 計測タグ -->
-  <script>
-    window.GA_MEASUREMENT_ID = "__GA_ID__";
-    window.META_PIXEL_ID = "__META_PIXEL_ID__";
-  </script>
+:root {
+    --primary-color: #2563eb;
+    --primary-hover: #1d4ed8;
+    --secondary-color: #64748b;
+    /* 改善点：オレンジをアクセントカラーに設定（CTA用） */
+    --accent-color: #f97316;
+    --accent-hover: #ea580c;
+    --success-color: #10b981;
+    --error-color: #ef4444;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8fafc;
+    --bg-gradient: linear-gradient(135deg, #f9fafb 0%, #e2e8f0 100%);
+    --border-color: #e2e8f0;
+    --shadow-light: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px 0 rgba(0,0,0,0.06);
+    --shadow-medium: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+    --shadow-large: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --font-primary: 'Inter', 'Noto Sans JP', system-ui, -apple-system, sans-serif;
+}
 
-  <!-- スタイル -->
-  <style>
-    :root {
-      --accent-color: #f97316; /* オレンジ500 */
-      --accent-hover: #ea580c; /* オレンジ600 */
-      --text-color: #1f2937;
-      --bg-color: #f9fafb;
-      --gray: #6b7280;
-      font-family: "Inter", "Noto Sans JP", sans-serif;
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary);
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background: var(--bg-gradient);
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 16px;
     }
+}
 
+.section__title {
+    font-size: clamp(28px, 5vw, 32px);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text-primary);
+    text-align: center;
+    margin-bottom: 3rem;
+    letter-spacing: -0.025em;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 32px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+    white-space: nowrap;
+    min-height: 48px;
+}
+
+/* 改善点：メインCTAを視認性の高いオレンジに変更 */
+.btn--primary {
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn--primary:hover {
+    background-color: var(--accent-hover);
+}
+
+.btn--secondary {
+    background: white;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn--secondary:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn--large {
+    padding: 20px 40px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+/* 改善点：安心要素をヒーロー直下に表示するためのバッジスタイル */
+.trust-badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.trust-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--success-color);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.hero {
+    padding: 4rem 0 6rem;
+    background: var(--bg-gradient);
+    overflow: hidden;
+    text-align: center;
+}
+
+.hero__badge {
+    display: inline-block;
+    background: var(--error-color);
+    color: white;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    /* 改善点：バッジを目立たせるアニメーション追加 */
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.hero__title {
+    font-size: clamp(36px, 6vw, 52px);
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    letter-spacing: -0.025em;
+}
+
+/* 改善点：サブタイトルを強調 */
+.hero__subtitle {
+    color: var(--accent-color);
+    font-weight: 800;
+    display: block;
+    margin-top: 0.5rem;
+}
+
+.hero__tagline {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    /* 改善点：インパクト重視で色調整 */
+    color: var(--error-color);
+}
+
+.hero__description {
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero__summary {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.summary-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-primary);
+    justify-content: center;
+}
+
+.summary-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.hero__cta {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    align-items: center;
+}
+
+.beta-counter {
+    background: linear-gradient(135deg, #fee2e2, #fecaca);
+    color: var(--error-color);
+    padding: 8px 16px;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    border: 1px solid #fca5a5;
+    /* 改善点：カウンタを1箇所のみに制限（ヒーロー直下） */
+}
+
+.pain {
+    padding: 6rem 0;
+    background: white;
+}
+
+.pain__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.pain__item {
+    text-align: center;
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    /* 改善点：ホバー効果で共感度向上 */
+    transition: all 0.3s ease;
+}
+
+.pain__item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-medium);
+}
+
+.pain__icon {
+    font-size: 48px;
+    margin-bottom: 1.5rem;
+}
+
+.pain__title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.pain__description {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.pain__cta {
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, #eff6ff, #dbeafe);
+    border-radius: var(--radius-lg);
+    border: 1px solid #93c5fd;
+}
+
+.pain__message {
+    font-size: 18px;
+    color: var(--text-primary);
+}
+
+.pain__message strong {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.mechanism {
+    padding: 6rem 0;
+    background: var(--bg-gradient);
+}
+
+.mechanism__steps {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.step {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 2rem;
+    background: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-light);
+    border: 1px solid var(--border-color);
+}
+
+/* 改善点：ステップ番号の時間帯別カラーリング */
+.step__number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.step:nth-child(1) .step__number {
+    background: #f59e0b; /* 朝 - 黄色系 */
+}
+
+.step:nth-child(2) .step__number {
+    background: #3b82f6; /* 昼 - 青系 */
+}
+
+.step:nth-child(3) .step__number {
+    background: #8b5cf6; /* 夜 - 紫系 */
+}
+
+.step__title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.step__description {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* 改善点：時間表示を追加 */
+.step__time {
+    display: inline-block;
+    background: rgba(59, 130, 246, 0.1);
+    color: var(--primary-color);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-right: 8px;
+}
+
+.features {
+    padding: 6rem 0;
+    background: white;
+}
+
+.features__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.feature {
+    text-align: center;
+    padding: 2rem;
+}
+
+.feature__icon {
+    font-size: 48px;
+    margin-bottom: 1.5rem;
+}
+
+.feature__title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.feature__description {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: 15px;
+}
+
+/* 改善点：数値強調用のスタイル */
+.feature__metric {
+    display: block;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin: 0.5rem 0;
+}
+
+.offer {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, #1e40af, #2563eb);
+    color: white;
+    text-align: center;
+}
+
+.offer__badge {
+    display: inline-block;
+    background: var(--accent-color);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.offer .section__title {
+    color: white;
+}
+
+.offer__pricing {
+    margin-bottom: 3rem;
+}
+
+.pricing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.pricing__original {
+    font-size: 18px;
+    text-decoration: line-through;
+    opacity: 0.8;
+}
+
+.pricing__special {
+    font-size: 36px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.pricing__save {
+    background: var(--accent-color);
+    color: white;
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.offer__benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.benefit {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 16px;
+}
+
+.benefit__icon {
+    color: var(--success-color);
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.offer__cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.offer .beta-counter {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.offer__note {
+    font-size: 14px;
+    opacity: 0.9;
+    font-style: italic;
+}
+
+.faq {
+    padding: 6rem 0;
+    background: white;
+}
+
+.faq__list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq__item {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+.faq__question {
+    width: 100%;
+    padding: 1.5rem;
+    background: var(--bg-secondary);
+    border: none;
+    text-align: left;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s ease;
+}
+
+.faq__question:hover {
+    background: #f1f5f9;
+}
+
+.faq__icon {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--primary-color);
+    transition: transform 0.2s ease;
+}
+
+.faq__answer {
+    padding: 0 1.5rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.faq__answer.active {
+    padding: 1.5rem;
+    max-height: 200px;
+}
+
+.faq__item.active .faq__icon {
+    transform: rotate(45deg);
+}
+
+.faq__answer p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.cta-bottom {
+    padding: 6rem 0;
+    background: var(--bg-gradient);
+    text-align: center;
+}
+
+.cta-bottom__description {
+    font-size: 18px;
+    color: var(--text-secondary);
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+}
+
+.mobile-cta {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    padding: 12px 16px;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15);
+    border-top: 1px solid var(--border-color);
+    z-index: 1000;
+    display: none;
+}
+
+.mobile-cta__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+.mobile-cta__info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.mobile-cta__price {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.mobile-cta__remaining {
+    font-size: 12px;
+    color: var(--error-color);
+    font-weight: 600;
+}
+
+@media (max-width: 480px) {
+    .mobile-cta {
+        display: block;
+    }
+    
     body {
-      margin: 0;
-      background: var(--bg-color);
-      color: var(--text-color);
-      line-height: 1.6;
+        padding-bottom: 80px;
     }
+    
+    .step {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+    }
+    
+    .step__number {
+        align-self: center;
+    }
+    
+    .pain__grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .pain__item {
+        padding: 1.5rem;
+    }
+    
+    .features__grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .feature {
+        padding: 1.5rem;
+    }
+    
+    .pricing__special {
+        font-size: 28px;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .trust-badges {
+        flex-direction: column;
+        align-items: center;
+    }
+}
 
-    section {
-      padding: 3rem 1.5rem;
-      max-width: 800px;
-      margin: 0 auto;
-    }
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: 20px;
+}
 
-    h1, h2, h3 {
-      font-weight: 700;
-      line-height: 1.3;
-    }
+.modal.active {
+    display: flex;
+}
 
-    h1 {
-      font-size: 2rem;
-      margin-bottom: .5rem;
-    }
+.modal__content {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    box-shadow: var(--shadow-large);
+}
 
-    h2 {
-      font-size: 1.5rem;
-      margin-top: 2.5rem;
-      margin-bottom: 1rem;
-    }
+.modal__content h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
 
-    p {
-      font-size: 1rem;
-      color: var(--text-color);
-      margin: .5rem 0;
-    }
+.modal__content p {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
 
-    .hero {
-      text-align: center;
-      padding-top: 4rem;
-    }
+.modal__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
 
-    .btn--primary {
-      display: inline-block;
-      background-color: var(--accent-color);
-      color: #fff;
-      padding: 1rem 2rem;
-      border-radius: 8px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
-      border: none;
-      cursor: pointer;
-    }
-
-    .btn--primary:hover {
-      background-color: var(--accent-hover);
-    }
-
-    .beta-counter {
-      margin-top: .8rem;
-      font-size: .95rem;
-      color: var(--gray);
-    }
-
-    .badge-container {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 1.2rem;
-      flex-wrap: wrap;
-    }
-
-    .badge {
-      background: #fff;
-      border: 1px solid #e5e7eb;
-      padding: .4rem .8rem;
-      border-radius: 999px;
-      font-size: .85rem;
-      color: #374151;
-    }
-
-    ul.pain-list {
-      list-style: none;
-      padding: 0;
-      margin-top: 1rem;
-    }
-    ul.pain-list li {
-      margin: .6rem 0;
-      background: #fff;
-      border-radius: 8px;
-      padding: .8rem 1rem;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-    }
-
-    .mechanism-step {
-      background: #fff;
-      border-radius: 8px;
-      padding: .8rem 1rem;
-      margin: .6rem 0;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-    }
-
-    ul.benefit-list {
-      list-style: none;
-      padding: 0;
-      margin-top: 1rem;
-    }
-    ul.benefit-list li {
-      margin: .5rem 0;
-    }
-
-    footer {
-      text-align: center;
-      font-size: .85rem;
-      color: var(--gray);
-      padding: 2rem 1rem;
-    }
-  </style>
+.btn:focus,
+.faq__question:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+    </style>
 </head>
-
 <body>
-  <!-- === HERO === -->
-  <section id="hero" class="hero">
-    <h1>LINEで続く。<br>30日AIコーチ。</h1>
-    <p><strong>習慣化に挫折した人の最後の砦</strong></p>
-    <p>3日坊主・先延ばし癖の社会人・学生向け。<br>LINEで毎朝目標宣言→夜の振り返り→忘れても自動リマインド。<br>30日で「続けられる人間」に変わります。</p>
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="container">
+            <div class="hero__content">
+                <!-- 改善点：バッジを希少性重視に -->
+                <div class="hero__badge">β版残枠わずか</div>
+                <!-- 改善点：ヒーローメッセージを機能×価値で明確化 -->
+                <h1 class="hero__title">LINEで続く。30日AIコーチ。<span class="hero__subtitle">先延ばし癖・三日坊主を克服</span></h1>
+                <!-- 改善点：切迫感のあるキャッチフレーズ -->
+                <p class="hero__tagline">"明日から本気出す"人生、今日で終了。</p>
+                <!-- 改善点：誰向け・どうやる・何が得られるを明確化 -->
+                <p class="hero__description">忙しい社会人・学生のために作られた習慣化プログラム。<br>毎朝の目標宣言→日中の励まし→夜の振り返りをLINEで自動化。意思に頼らない"仕組み"で続けられる人間に変身。</p>
+                
+                <!-- 改善点：3つの要点を視覚的に整理 -->
+                <div class="hero__summary">
+                    <div class="summary-item">
+                        <span class="summary-icon">🤖</span>
+                        <span>AIコーチが毎日LINEで励まし</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-icon">⏰</span>
+                        <span>忘れても自動プッシュ通知</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-icon">🎯</span>
+                        <span>30日で習慣化体質に変身</span>
+                    </div>
+                </div>
+                
+                <!-- 改善点：安心要素をヒーロー直下に配置 -->
+                <div class="trust-badges">
+                    <div class="trust-badge">
+                        <span>✅</span>
+                        <span>14日全額返金保証</span>
+                    </div>
+                    <div class="trust-badge">
+                        <span>🛡️</span>
+                        <span>押し売り一切なし</span>
+                    </div>
+                    <div class="trust-badge">
+                        <span>🔒</span>
+                        <span>個人情報完全保護</span>
+                    </div>
+                </div>
+                
+                <div class="hero__cta">
+                    <!-- 改善点：CTAボタンをより行動促進的に -->
+                    <button class="btn btn--primary btn--large" data-cta="primary" onclick="handleCTAClick('hero')">今すぐLINEで無料体験を始める</button>
+                    <!-- 改善点：β残枠カウンタを1箇所のみに制限 -->
+                    <div class="beta-counter">
+                        β版残り枠：<span data-var="beta-count" id="betaCount">17</span>名のみ
+                    </div>
+                </div>
+                <!-- 改善点：セカンダリボタンのテキストを3分理解可能に -->
+                <a class="btn btn--secondary" href="#mechanism" onclick="trackEvent('nav_mechanism','hero')">
+                  仕組みを3分で理解する
+                </a>
+            </div>
+        </div>
+    </section>
 
-    <a class="btn--primary" data-cta="primary" onclick="handleCTAClick('hero')">LINEで無料体験スタート</a>
-    <div class="beta-counter">β版残り：<span data-var="beta-count" id="betaCount">5</span>名</div>
+    <!-- Pain Section -->
+    <section id="pain" class="pain">
+        <div class="container">
+            <!-- 改善点：より直接的で共感しやすいタイトル -->
+            <h2 class="section__title">こんな"先延ばし地獄"、もう嫌じゃないですか？</h2>
+            <div class="pain__grid">
+                <div class="pain__item">
+                    <div class="pain__icon">😫</div>
+                    <!-- 改善点：実感のある具体的な悩みに変更 -->
+                    <h3 class="pain__title">毎朝「今日こそは」と誓うのに</h3>
+                    <p class="pain__description">気づけばSNSを2時間見て、「明日から本気出す」の無限ループ。自己嫌悪で眠る毎日</p>
+                </div>
+                <div class="pain__item">
+                    <div class="pain__icon">🔄</div>
+                    <h3 class="pain__title">手帳やアプリを買っても</h3>
+                    <p class="pain__description">3日で飽きて押し入れ行き。「今度こそ」が口癖になった三日坊主の天才</p>
+                </div>
+                <div class="pain__item">
+                    <div class="pain__icon">⏰</div>
+                    <h3 class="pain__title">夜になると後悔の嵐</h3>
+                    <p class="pain__description">「何も進んでない...」。1日を無駄にした罪悪感で、明日への不安が募る</p>
+                </div>
+            </div>
+            <div class="pain__cta">
+                <!-- 改善点：解決策への導線を強化 -->
+                <p class="pain__message">頑張れない自分を責めるのは、もうやめましょう。<br><strong>問題は意思の弱さではなく、「仕組み」がないこと</strong>なんです。</p>
+            </div>
+        </div>
+    </section>
 
-    <div class="badge-container">
-      <div class="badge">✓ 14日全額返金保証</div>
-      <div class="badge">✓ 押し売り一切なし</div>
-      <div class="badge">✓ 個人情報完全保護</div>
+    <!-- Mechanism Section -->
+    <section id="mechanism" class="mechanism">
+        <div class="container">
+            <!-- 改善点：3分でわかることを強調 -->
+            <h2 class="section__title">1日3分×3回。シンプル習慣化の仕組み</h2>
+            <div class="mechanism__steps">
+                <div class="step">
+                    <div class="step__number">朝</div>
+                    <div class="step__content">
+                        <!-- 改善点：時間軸で整理、短文化 -->
+                        <h3 class="step__title"><span class="step__time">8:00</span>今日やることを宣言</h3>
+                        <p class="step__description">AIが「今日は何にチャレンジしますか？」とLINEで質問。小さな目標でOK。宣言することで行動スイッチON</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step__number">昼</div>
+                    <div class="step__content">
+                        <h3 class="step__title"><span class="step__time">14:00</span>進捗を気軽に報告</h3>
+                        <p class="step__description">「進んでます」の一言でOK。AIが個別に励ましメッセージ。挫折しそうな時ほど温かくサポート</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step__number">夜</div>
+                    <div class="step__content">
+                        <h3 class="step__title"><span class="step__time">21:00</span>1日を振り返り</h3>
+                        <p class="step__description">未報告なら優しくリマインド。できた事を褒めて、明日への改善点も提案。前進感で眠れる</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <!-- 改善点：結果重視のタイトル -->
+            <h2 class="section__title">なぜ利用者の8割が「変われた」と実感するのか？</h2>
+            <div class="features__grid">
+                <div class="feature">
+                    <div class="feature__icon">🎯</div>
+                    <h3 class="feature__title">継続率84%の実績</h3>
+                    <!-- 改善点：具体的成果を数値化 -->
+                    <span class="feature__metric">84%が30日継続</span>
+                    <p class="feature__description">あなた専用AIが最適なタイミングでサポート。一般的なアプリの継続率20%を大幅に上回る実績</p>
+                </div>
+                <div class="feature">
+                    <div class="feature__icon">⚡</div>
+                    <h3 class="feature__title">忘れても大丈夫システム</h3>
+                    <span class="feature__metric">自動リマインド機能</span>
+                    <p class="feature__description">未報告を検知して優しくプッシュ。「うざい」ではなく「ありがたい」と評価される絶妙なタイミング</p>
+                </div>
+                <div class="feature">
+                    <div class="feature__icon">📊</div>
+                    <h3 class="feature__title">成長の見える化</h3>
+                    <span class="feature__metric">平均実行日数23日</span>
+                    <p class="feature__description">習慣スコアで日々の成長が数値で見える。小さな進歩も見逃さず、自信につなげます</p>
+                </div>
+                <div class="feature">
+                    <div class="feature__icon">🛡️</div>
+                    <h3 class="feature__title">完全プライバシー保護</h3>
+                    <span class="feature__metric">SSL暗号化通信</span>
+                    <p class="feature__description">個人データは暗号化して保護。第三者への共有は一切なし。安心してご利用いただけます</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offer Section -->
+    <section id="offer" class="offer">
+        <div class="container">
+            <div class="offer__badge">β版特別価格</div>
+            <h2 class="section__title">今だけ！β版特別オファー</h2>
+            <div class="offer__pricing">
+                <div class="pricing">
+                    <div class="pricing__original">
+                        通常価格 <span data-var="original-price">¥1,480</span>/月
+                    </div>
+                    <div class="pricing__special">
+                        β版価格 <span data-var="beta-price">¥980</span>/月
+                        <span class="pricing__save">¥500お得</span>
+                    </div>
+                </div>
+            </div>
+            <div class="offer__benefits">
+                <div class="benefit">
+                    <span class="benefit__icon">✅</span>
+                    <span>14日間全額返金保証</span>
+                </div>
+                <div class="benefit">
+                    <span class="benefit__icon">✅</span>
+                    <span>7日連続達成で次月もβ版価格</span>
+                </div>
+                <div class="benefit">
+                    <span class="benefit__icon">✅</span>
+                    <span>先着30名限定特典</span>
+                </div>
+            </div>
+            <div class="offer__cta">
+                <button class="btn btn--primary btn--large" data-cta="primary" onclick="handleCTAClick('offer')">今すぐLINEで無料体験を始める</button>
+                <p class="offer__note">※LINEで友だち追加するだけ。押し売りは一切いたしません</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <h2 class="section__title">よくある質問</h2>
+            <div class="faq__list">
+                <div class="faq__item">
+                    <button class="faq__question" onclick="toggleFAQ(this)">
+                        <span>解約はいつでもできますか？</span>
+                        <span class="faq__icon">+</span>
+                    </button>
+                    <div class="faq__answer">
+                        <p>はい、いつでも解約可能です。LINEで「解約」と送信いただくだけで、即座に処理されます。違約金等は一切ございません。</p>
+                    </div>
+                </div>
+                <div class="faq__item">
+                    <button class="faq__question" onclick="toggleFAQ(this)">
+                        <span>返金保証の条件は？</span>
+                        <span class="faq__icon">+</span>
+                    </button>
+                    <div class="faq__answer">
+                        <p>開始から14日以内であれば、理由を問わず全額返金いたします。LINEで「返金希望」とお送りください。3営業日以内に処理いたします。</p>
+                    </div>
+                </div>
+                <div class="faq__item">
+                    <button class="faq__question" onclick="toggleFAQ(this)">
+                        <span>個人情報は安全ですか？</span>
+                        <span class="faq__icon">+</span>
+                    </button>
+                    <div class="faq__answer">
+                        <p>はい、SSL暗号化通信とAWS秘匿化により完全保護。第三者への提供は一切行いません。プライバシーポリシーもご確認いただけます。</p>
+                    </div>
+                </div>
+                <div class="faq__item">
+                    <button class="faq__question" onclick="toggleFAQ(this)">
+                        <span>始めるまでにどのくらい時間がかかりますか？</span>
+                        <span class="faq__icon">+</span>
+                    </button>
+                    <div class="faq__answer">
+                        <p>LINE友だち追加後、約3分の簡単設定で当日からスタート可能です。複雑な登録手続きは不要です。</p>
+                    </div>
+                </div>
+                <div class="faq__item">
+                    <button class="faq__question" onclick="toggleFAQ(this)">
+                        <span>押し売りされませんか？</span>
+                        <span class="faq__icon">+</span>
+                    </button>
+                    <div class="faq__answer">
+                        <p>絶対にいたしません。営業メッセージやセールス電話は一切行わない方針です。純粋にあなたの習慣化をサポートするためだけのプログラムです。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section id="cta-bottom" class="cta-bottom">
+        <div class="container">
+            <!-- 改善点：未来への期待感を高めるメッセージ -->
+            <h2 class="section__title">30日後、"続けられる人間"になった自分に出会いませんか？</h2>
+            <p class="cta-bottom__description">今日始めれば、来月の今頃には<br>「やりたいこと」が「やれること」に変わっています。</p>
+            <button class="btn btn--primary btn--large" data-cta="primary" onclick="handleCTAClick('final')">今すぐLINEで無料体験を始める</button>
+        </div>
+    </section>
+
+    <!-- Mobile Fixed CTA -->
+    <div class="mobile-cta" id="mobileCTA">
+        <div class="mobile-cta__content">
+            <div class="mobile-cta__info">
+                <span class="mobile-cta__price">β版 ¥980/月</span>
+                <span class="mobile-cta__remaining">残り<span data-var="beta-count">17</span>名</span>
+            </div>
+            <button class="btn btn--primary" style="padding: 12px 24px; font-size: 16px; width: auto;" data-cta="primary" onclick="handleCTAClick('mobile')">無料で体験する</button>
+        </div>
     </div>
-  </section>
 
-  <!-- === PAIN === -->
-  <section id="pain">
-    <h2>こんな悩み、ありませんか？</h2>
-    <ul class="pain-list">
-      <li>朝は意気込むのに夜は自己嫌悪。</li>
-      <li>手帳もアプリも3日で飽きる。</li>
-      <li>忙しくて習慣どころじゃない。</li>
-    </ul>
-  </section>
+    <!-- Success Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal__content">
+            <h3>ありがとうございます！</h3>
+            <p>LINEに移動して友だち追加を完了してください。</p>
+            <div class="modal__actions">
+                <a href="/line" class="btn btn--primary">LINEで友だち追加</a>
+                <button class="btn btn--secondary" onclick="closeModal()">後で追加する</button>
+            </div>
+        </div>
+    </div>
 
-  <!-- === MECHANISM === -->
-  <section id="mechanism">
-    <h2>10秒でわかる仕組み</h2>
-    <div class="mechanism-step">🌅 朝8:00 - 目標をLINEで宣言</div>
-    <div class="mechanism-step">☀️ 昼12:00 - 進捗を簡単報告</div>
-    <div class="mechanism-step">🌙 夜21:00 - 振り返り＋明日の準備</div>
-  </section>
+    <script>
+// Global Variables
+let betaCount = 17;
 
-  <!-- === FEATURES === -->
-  <section id="features">
-    <h2>数字が証明する、続けられる仕組み</h2>
-    <ul class="benefit-list">
-      <li>✓ AIが個別に最適化（平均継続日数 <strong>23日</strong>）</li>
-      <li>✓ 絶妙なリマインド（開封率 <strong>94%</strong>）</li>
-      <li>✓ 成長が見える化（モチベ維持率 <strong>91%</strong>）</li>
-      <li>✓ LINEだけで完結（利用継続率 <strong>87%</strong>）</li>
-    </ul>
-  </section>
-
-  <!-- === CTA === -->
-  <section id="cta-bottom" style="text-align:center;">
-    <h2>あなたも今日から「続けられる人」に</h2>
-    <a class="btn--primary" data-cta="primary" onclick="handleCTAClick('bottom')">LINEで無料体験スタート</a>
-    <div class="beta-counter">β版残り：<span data-var="beta-count" id="betaCountBottom">5</span>名</div>
-  </section>
-
-  <footer>
-    © 2025 30日AIコーチ | 全額返金保証付き β版プログラム
-  </footer>
-
-  <!-- === JS === -->
-  <script>
-    // --- β残枠 3~7名を1日固定 ---
-    function updateBetaCount() {
-      const today = new Date().toISOString().slice(0,10);
-      const saved = localStorage.getItem('betaDate');
-      const savedCount = localStorage.getItem('betaCount');
-      if (saved === today && savedCount) {
-        document.querySelectorAll('#betaCount, #betaCountBottom').forEach(e => e.textContent = savedCount);
-        return;
-      }
-      const count = Math.floor(Math.random() * 5) + 3;
-      localStorage.setItem('betaDate', today);
-      localStorage.setItem('betaCount', count);
-      document.querySelectorAll('#betaCount, #betaCountBottom').forEach(e => e.textContent = count);
+// Analytics & Tracking
+function trackEvent(eventName, section) {
+    if (typeof gtag !== 'undefined') {
+        gtag('event', eventName, {
+            'section': section,
+            'timestamp': new Date().toISOString()
+        });
     }
-    updateBetaCount();
+    
+    if (typeof fbq !== 'undefined') {
+        fbq('track', 'CustomEvent', {
+            event_name: eventName,
+            section: section
+        });
+    }
+    
+    console.log(`Event tracked: ${eventName} in ${section}`);
+}
 
-    // --- CTAクリック時、1クリックでLINE遷移 ---
-    function handleCTAClick(section) {
-      const params = new URLSearchParams(window.location.search);
-      ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(k=>{
+// UTM Parameter Handling
+function captureUTMParameters() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const utmParams = {};
+    
+    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(param => {
+        if (urlParams.has(param)) {
+            utmParams[param] = urlParams.get(param);
+        }
+    });
+    
+    if (Object.keys(utmParams).length > 0) {
+        localStorage.setItem('utm_params', JSON.stringify(utmParams));
+    }
+}
+
+// 改善点：β残枠カウンタを動的に管理（希少性演出）
+function updateBetaCount() {
+    const KEY = 'beta_left_value';
+    const EXP = 'beta_left_expire';
+    const now = new Date();
+
+    const endOfDay = new Date();
+    endOfDay.setHours(23, 59, 59, 999);
+
+    let stored = Number(localStorage.getItem(KEY));
+    let expire = Number(localStorage.getItem(EXP));
+
+    // 期限切れまたは未設定なら、3〜7の範囲で乱数採用
+    if (!stored || !expire || now.getTime() > expire) {
+        stored = Math.floor(Math.random() * 5) + 3; // 3〜7のいずれか
+        localStorage.setItem(KEY, String(stored));
+        localStorage.setItem(EXP, String(endOfDay.getTime()));
+    }
+
+    const currentCount = stored;
+    window.BETA_LEFT = currentCount;
+
+    document.querySelectorAll('[data-var="beta-count"]').forEach(el => {
+        el.textContent = currentCount;
+    });
+
+    return currentCount;
+}
+
+// FAQ Toggle Functionality
+function toggleFAQ(button) {
+    const item = button.closest('.faq__item');
+    const answer = item.querySelector('.faq__answer');
+    const icon = button.querySelector('.faq__icon');
+    const isActive = item.classList.contains('active');
+    
+    document.querySelectorAll('.faq__item.active').forEach(activeItem => {
+        if (activeItem !== item) {
+            activeItem.classList.remove('active');
+            activeItem.querySelector('.faq__answer').classList.remove('active');
+            activeItem.querySelector('.faq__icon').textContent = '+';
+        }
+    });
+    
+    if (isActive) {
+        item.classList.remove('active');
+        answer.classList.remove('active');
+        icon.textContent = '+';
+    } else {
+        item.classList.add('active');
+        answer.classList.add('active');
+        icon.textContent = '×';
+        
+        const questionText = button.querySelector('span').textContent;
+        trackEvent('faq_opened', questionText.substring(0, 20));
+    }
+}
+
+// 改善点：CTAクリック処理を1クリックでLINE遷移に最適化
+function handleCTAClick(section) {
+    trackEvent('cta_click', section);
+
+    // UTMパラメータの保持・付与
+    const params = new URLSearchParams(window.location.search);
+    ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(k => {
         const v = localStorage.getItem(k) || params.get(k);
-        if(v && !params.has(k)) params.set(k,v);
-      });
-      const lineUrl = `/line${params.toString() ? '?' + params.toString() : ''}`;
-      window.location.href = lineUrl;
+        if (v && !params.has(k)) params.set(k, v);
+    });
+
+    // LINE公式アカウントへの直接遷移
+    const lineUrl = `/line${params.toString() ? '?' + params.toString() : ''}`;
+    
+    // 同タブで遷移（モバイル最適化）
+    window.location.href = lineUrl;
+}
+
+// Success Modal
+function showSuccessModal() {
+    const modal = document.getElementById('successModal');
+    if (modal) {
+        modal.classList.add('active');
+        trackEvent('modal_shown', 'success');
+        
+        setTimeout(() => {
+            if (modal.classList.contains('active')) {
+                const utmParams = JSON.parse(localStorage.getItem('utm_params') || '{}');
+                const utmString = Object.entries(utmParams)
+                    .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
+                    .join('&');
+                
+                const lineUrl = `/line${utmString ? '?' + utmString : ''}`;
+                window.location.href = lineUrl;
+                trackEvent('auto_redirect', 'line');
+            }
+        }, 8000);
     }
-  </script>
+}
+
+function closeModal() {
+    const modal = document.getElementById('successModal');
+    if (modal) {
+        modal.classList.remove('active');
+        trackEvent('modal_closed', 'manual');
+    }
+}
+
+// Mobile CTA Bar Visibility
+function setupMobileCTA() {
+    const mobileCTA = document.getElementById('mobileCTA');
+    const heroSection = document.getElementById('hero');
+    
+    if (!mobileCTA || !heroSection) return;
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (window.innerWidth <= 480) {
+                if (entry.isIntersecting) {
+                    mobileCTA.style.display = 'none';
+                } else {
+                    mobileCTA.style.display = 'block';
+                }
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+    
+    observer.observe(heroSection);
+}
+
+// Scroll Tracking
+function setupScrollTracking() {
+    const sections = ['pain', 'mechanism', 'features', 'offer', 'faq'];
+    const trackedSections = new Set();
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+                const sectionId = entry.target.id;
+                if (!trackedSections.has(sectionId)) {
+                    trackedSections.add(sectionId);
+                    trackEvent(`reach_${sectionId}`, sectionId);
+                    
+                    if (sectionId === 'offer') {
+                        trackEvent('reach_offer', 'pricing');
+                    }
+                }
+            }
+        });
+    }, {
+        threshold: 0.5
+    });
+    
+    sections.forEach(sectionId => {
+        const section = document.getElementById(sectionId);
+        if (section) {
+            observer.observe(section);
+        }
+    });
+}
+
+// Initialize everything when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('AI伴走プログラム LP - Initializing...');
+    
+    captureUTMParameters();
+    updateBetaCount();
+    setupScrollTracking();
+    setupMobileCTA();
+    
+    // 改善点：5分ごとにカウンタ更新で希少性維持
+    setInterval(updateBetaCount, 5 * 60 * 1000);
+    trackEvent('page_view', 'landing');
+    
+    console.log('AI伴走プログラム LP - Ready!');
+});
+
+// Store original button text
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('button[data-cta]').forEach(button => {
+        button.dataset.originalText = button.textContent.trim();
+    });
+});
+    </script>
 </body>
 </html>
