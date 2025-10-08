@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- 改善点：メタディスクリプションを3秒理解可能に具体化 -->
-    <meta name="description" content="LINEで続く。30日AIコーチ。先延ばし癖・三日坊主を克服。毎朝の目標宣言→日中の励まし→夜の振り返りで習慣化を仕組み化。β版¥980/月、14日返金保証。">
-    <!-- 改善点：タイトルを機能重視に変更 -->
-    <title>LINEで続く。30日AIコーチ｜先延ばし癖・三日坊主を克服</title>
+    <meta name="description" content="30日間AI伴走プログラム｜「やりたい」を「やった」に変える。AIコーチがLINEで毎日伴走、意思に頼らず続く習慣を育てます。">
+    <title>30日間AI伴走プログラム｜"やりたい"を"やった"に変える。</title>
     
     <!-- GA4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
@@ -47,9 +45,7 @@
     --primary-color: #2563eb;
     --primary-hover: #1d4ed8;
     --secondary-color: #64748b;
-    /* 改善点：オレンジをアクセントカラーに設定（CTA用） */
-    --accent-color: #f97316;
-    --accent-hover: #ea580c;
+    --accent-color: #f59e0b;
     --success-color: #10b981;
     --error-color: #ef4444;
     --text-primary: #1e293b;
@@ -119,16 +115,15 @@ body {
     min-height: 48px;
 }
 
-/* 改善点：メインCTAを視認性の高いオレンジに変更 */
 .btn--primary {
-    background-color: var(--accent-color);
-    color: #fff;
-    border: none;
-    transition: background-color 0.3s ease;
+   background-color: #f97316; /* 明るいオレンジ (#f97316 = Orange 500) */
+  color: #fff;
+  border: none;
+  transition: background-color 0.3s ease;
 }
 
 .btn--primary:hover {
-    background-color: var(--accent-hover);
+    background-color: #ea580c; /* Hover時は少し濃いオレンジ (#ea580c = Orange 600) */
 }
 
 .btn--secondary {
@@ -148,28 +143,6 @@ body {
     font-weight: 700;
 }
 
-/* 改善点：安心要素をヒーロー直下に表示するためのバッジスタイル */
-.trust-badges {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    margin: 1.5rem 0;
-}
-
-.trust-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: rgba(16, 185, 129, 0.1);
-    color: var(--success-color);
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: 600;
-    border: 1px solid rgba(16, 185, 129, 0.2);
-}
-
 .hero {
     padding: 4rem 0 6rem;
     background: var(--bg-gradient);
@@ -179,24 +152,17 @@ body {
 
 .hero__badge {
     display: inline-block;
-    background: var(--error-color);
+    background: var(--accent-color);
     color: white;
     padding: 6px 16px;
     border-radius: 20px;
     font-size: 14px;
     font-weight: 600;
     margin-bottom: 1.5rem;
-    /* 改善点：バッジを目立たせるアニメーション追加 */
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
 }
 
 .hero__title {
-    font-size: clamp(36px, 6vw, 52px);
+    font-size: clamp(32px, 6vw, 48px);
     font-weight: 700;
     line-height: 1.1;
     color: var(--text-primary);
@@ -204,21 +170,16 @@ body {
     letter-spacing: -0.025em;
 }
 
-/* 改善点：サブタイトルを強調 */
 .hero__subtitle {
-    color: var(--accent-color);
+    color: var(--primary-color);
     font-weight: 800;
-    display: block;
-    margin-top: 0.5rem;
 }
 
 .hero__tagline {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 600;
     color: var(--text-secondary);
     margin-bottom: 1.5rem;
-    /* 改善点：インパクト重視で色調整 */
-    color: var(--error-color);
 }
 
 .hero__description {
@@ -273,7 +234,6 @@ body {
     font-weight: 600;
     text-align: center;
     border: 1px solid #fca5a5;
-    /* 改善点：カウンタを1箇所のみに制限（ヒーロー直下） */
 }
 
 .pain {
@@ -294,13 +254,6 @@ body {
     border-radius: var(--radius-lg);
     background: var(--bg-secondary);
     border: 1px solid var(--border-color);
-    /* 改善点：ホバー効果で共感度向上 */
-    transition: all 0.3s ease;
-}
-
-.pain__item:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-medium);
 }
 
 .pain__icon {
@@ -362,30 +315,18 @@ body {
     border: 1px solid var(--border-color);
 }
 
-/* 改善点：ステップ番号の時間帯別カラーリング */
 .step__number {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 48px;
     height: 48px;
+    background: var(--primary-color);
     color: white;
     font-size: 20px;
     font-weight: 700;
     border-radius: 50%;
     flex-shrink: 0;
-}
-
-.step:nth-child(1) .step__number {
-    background: #f59e0b; /* 朝 - 黄色系 */
-}
-
-.step:nth-child(2) .step__number {
-    background: #3b82f6; /* 昼 - 青系 */
-}
-
-.step:nth-child(3) .step__number {
-    background: #8b5cf6; /* 夜 - 紫系 */
 }
 
 .step__title {
@@ -398,18 +339,6 @@ body {
 .step__description {
     color: var(--text-secondary);
     line-height: 1.6;
-}
-
-/* 改善点：時間表示を追加 */
-.step__time {
-    display: inline-block;
-    background: rgba(59, 130, 246, 0.1);
-    color: var(--primary-color);
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 12px;
-    font-weight: 600;
-    margin-right: 8px;
 }
 
 .features {
@@ -445,15 +374,6 @@ body {
     color: var(--text-secondary);
     line-height: 1.6;
     font-size: 15px;
-}
-
-/* 改善点：数値強調用のスタイル */
-.feature__metric {
-    display: block;
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--accent-color);
-    margin: 0.5rem 0;
 }
 
 .offer {
@@ -712,11 +632,6 @@ body {
         flex-direction: column;
         gap: 0.5rem;
     }
-    
-    .trust-badges {
-        flex-direction: column;
-        align-items: center;
-    }
 }
 
 .modal {
@@ -772,6 +687,29 @@ body {
     outline: 2px solid var(--primary-color);
     outline-offset: 2px;
 }
+        /* === #pain に挿れる実例画像のスタイル === */
+.pain__image-wrapper{
+  margin-top: 2.5rem;
+  text-align: center;
+}
+.pain__image{
+  max-width: 90%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.15);
+}
+.pain__caption{
+  margin-top: .8rem;
+  font-size: .95rem;
+  color: #4b5563; /* gray-600 */
+}
+        /* === PC表示時の画像縮小（スマホはそのまま）=== */
+@media (min-width: 768px) {
+  .pain__image {
+    max-width: 30%;
+  }
+}
+
     </style>
 </head>
 <body>
@@ -779,58 +717,33 @@ body {
     <section id="hero" class="hero">
         <div class="container">
             <div class="hero__content">
-                <!-- 改善点：バッジを希少性重視に -->
-                <div class="hero__badge">β版残枠わずか</div>
-                <!-- 改善点：ヒーローメッセージを機能×価値で明確化 -->
-                <h1 class="hero__title">LINEで続く。30日AIコーチ。<span class="hero__subtitle">先延ばし癖・三日坊主を克服</span></h1>
-                <!-- 改善点：切迫感のあるキャッチフレーズ -->
-                <p class="hero__tagline">"明日から本気出す"人生、今日で終了。</p>
-                <!-- 改善点：誰向け・どうやる・何が得られるを明確化 -->
-                <p class="hero__description">忙しい社会人・学生のために作られた習慣化プログラム。<br>毎朝の目標宣言→日中の励まし→夜の振り返りをLINEで自動化。意思に頼らない"仕組み"で続けられる人間に変身。</p>
-                
-                <!-- 改善点：3つの要点を視覚的に整理 -->
+                <div class="hero__badge">β版限定</div>
+                <h1 class="hero__title">30日間AI伴走プログラム<br><span class="hero__subtitle">"やりたい"を"やった"に変える。</span></h1>
+                <p class="hero__tagline">"やりたい"で終わる人生、もうやめよう。</p>
+                <p class="hero__description">「やらなきゃ」と思ってもSNSで日が暮れる——AIが行動を"仕組み化"。<br>毎朝の目標宣言／夜の振り返り／未報告時はリマインド。意思に頼らず続くあなたを育てます。</p>
                 <div class="hero__summary">
                     <div class="summary-item">
                         <span class="summary-icon">🤖</span>
-                        <span>AIコーチが毎日LINEで励まし</span>
+                        <span>AIコーチがLINEで毎日伴走</span>
                     </div>
                     <div class="summary-item">
-                        <span class="summary-icon">⏰</span>
-                        <span>忘れても自動プッシュ通知</span>
+                        <span class="summary-icon">📢</span>
+                        <span>未報告は自動プッシュ</span>
                     </div>
                     <div class="summary-item">
-                        <span class="summary-icon">🎯</span>
-                        <span>30日で習慣化体質に変身</span>
+                        <span class="summary-icon">✨</span>
+                        <span>30日後"続けられる人間"に</span>
                     </div>
                 </div>
-                
-                <!-- 改善点：安心要素をヒーロー直下に配置 -->
-                <div class="trust-badges">
-                    <div class="trust-badge">
-                        <span>✅</span>
-                        <span>14日全額返金保証</span>
-                    </div>
-                    <div class="trust-badge">
-                        <span>🛡️</span>
-                        <span>押し売り一切なし</span>
-                    </div>
-                    <div class="trust-badge">
-                        <span>🔒</span>
-                        <span>個人情報完全保護</span>
-                    </div>
-                </div>
-                
                 <div class="hero__cta">
-                    <!-- 改善点：CTAボタンをより行動促進的に -->
-                    <button class="btn btn--primary btn--large" data-cta="primary" onclick="handleCTAClick('hero')">今すぐLINEで無料体験を始める</button>
-                    <!-- 改善点：β残枠カウンタを1箇所のみに制限 -->
+                    <button class="btn btn--primary btn--large" data-cta="primary" onclick="handleCTAClick('hero')">今すぐ無料で体験してみる</button>
                     <div class="beta-counter">
-                        β版残り枠：<span data-var="beta-count" id="betaCount">17</span>名のみ
+                        β版残り枠：<span data-var="beta-count" id="betaCount">17</span>名
                     </div>
                 </div>
-                <!-- 改善点：セカンダリボタンのテキストを3分理解可能に -->
+                <!-- 変更点：<button> を <a> に、JSは nav 計測＋#mechanism にスムーズスクロール -->
                 <a class="btn btn--secondary" href="#mechanism" onclick="trackEvent('nav_mechanism','hero')">
-                  仕組みを3分で理解する
+                  サービス内容（10秒でわかる）
                 </a>
             </div>
         </div>
@@ -839,59 +752,65 @@ body {
     <!-- Pain Section -->
     <section id="pain" class="pain">
         <div class="container">
-            <!-- 改善点：より直接的で共感しやすいタイトル -->
-            <h2 class="section__title">こんな"先延ばし地獄"、もう嫌じゃないですか？</h2>
+            <h2 class="section__title">こんな「先延ばし地獄」から抜け出したくないですか？</h2>
             <div class="pain__grid">
                 <div class="pain__item">
                     <div class="pain__icon">😫</div>
-                    <!-- 改善点：実感のある具体的な悩みに変更 -->
-                    <h3 class="pain__title">毎朝「今日こそは」と誓うのに</h3>
-                    <p class="pain__description">気づけばSNSを2時間見て、「明日から本気出す」の無限ループ。自己嫌悪で眠る毎日</p>
+                    <h3 class="pain__title">毎日「明日こそは」と思う</h3>
+                    <p class="pain__description">朝は意気込むのに、夜になると何もできていない自分にガッカリ</p>
+                </div>
+                <div class="pain__item">
+                    <div class="pain__icon">📱</div>
+                    <h3 class="pain__title">気づくとSNSで時間消費</h3>
+                    <p class="pain__description">「ちょっとだけ」のつもりが2時間経過。生産的な時間がゼロ</p>
                 </div>
                 <div class="pain__item">
                     <div class="pain__icon">🔄</div>
-                    <h3 class="pain__title">手帳やアプリを買っても</h3>
-                    <p class="pain__description">3日で飽きて押し入れ行き。「今度こそ」が口癖になった三日坊主の天才</p>
-                </div>
-                <div class="pain__item">
-                    <div class="pain__icon">⏰</div>
-                    <h3 class="pain__title">夜になると後悔の嵐</h3>
-                    <p class="pain__description">「何も進んでない...」。1日を無駄にした罪悪感で、明日への不安が募る</p>
+                    <h3 class="pain__title">3日坊主の無限ループ</h3>
+                    <p class="pain__description">新しいアプリや手帳を試すも、結局続かない。自己嫌悪の繰り返し</p>
                 </div>
             </div>
             <div class="pain__cta">
-                <!-- 改善点：解決策への導線を強化 -->
-                <p class="pain__message">頑張れない自分を責めるのは、もうやめましょう。<br><strong>問題は意思の弱さではなく、「仕組み」がないこと</strong>なんです。</p>
+                <p class="pain__message">意思の力だけでは限界があります。<br><strong>仕組みが必要</strong>なんです。</p>
             </div>
+                    <!-- === AIコーチ実際のトーク例 === -->
+        <div class="pain__image-wrapper">
+          <img
+            src="/assets/AIコーチ.png"
+            alt="AIコーチとのLINEトーク画面。AIが今日の目標を問いかけ、ユーザーが返信している様子"
+            loading="lazy"
+            width="1414" height="2000"
+            class="pain__image">
+          <p class="pain__caption">AIコーチが毎日LINEであなたの行動をサポート。</p>
+        </div>
+
         </div>
     </section>
 
     <!-- Mechanism Section -->
     <section id="mechanism" class="mechanism">
         <div class="container">
-            <!-- 改善点：3分でわかることを強調 -->
-            <h2 class="section__title">1日3分×3回。シンプル習慣化の仕組み</h2>
+            <h2 class="section__title">シンプル3ステップで習慣が身につく仕組み</h2>
             <div class="mechanism__steps">
                 <div class="step">
-                    <div class="step__number">朝</div>
+                    <div class="step__number">1</div>
                     <div class="step__content">
-                        <!-- 改善点：時間軸で整理、短文化 -->
-                        <h3 class="step__title"><span class="step__time">8:00</span>今日やることを宣言</h3>
-                        <p class="step__description">AIが「今日は何にチャレンジしますか？」とLINEで質問。小さな目標でOK。宣言することで行動スイッチON</p>
+                        <h3 class="step__title">朝の目標宣言</h3>
+                        <p class="step__description">毎朝8時にLINEで今日やることを宣言。AIが最適な目標設定をサポート</p>
                     </div>
                 </div>
                 <div class="step">
-                    <div class="step__number">昼</div>
+                    <div class="step__number">2</div>
                     <div class="step__content">
-                        <h3 class="step__title"><span class="step__time">14:00</span>進捗を気軽に報告</h3>
-                        <p class="step__description">「進んでます」の一言でOK。AIが個別に励ましメッセージ。挫折しそうな時ほど温かくサポート</p>
+                        <h3 class="step__title">日中の行動追跡</h3>
+                        <p class="step__description">進捗をLINEで簡単報告。AIが励ましとアドバイスを自動送信</p>
                     </div>
                 </div>
                 <div class="step">
-                    <div class="step__number">夜</div>
+                    <div class="step__number">3</div>
                     <div class="step__content">
-                        <h3 class="step__title"><span class="step__time">21:00</span>1日を振り返り</h3>
-                        <p class="step__description">未報告なら優しくリマインド。できた事を褒めて、明日への改善点も提案。前進感で眠れる</p>
+                        <h3 class="step__title">夜の振り返り</h3>
+                        <p class="step__description">21時に自動リマインド。未報告なら優しくプッシュ。明日への改善点も提案</p>
                     </div>
                 </div>
             </div>
@@ -901,33 +820,27 @@ body {
     <!-- Features Section -->
     <section id="features" class="features">
         <div class="container">
-            <!-- 改善点：結果重視のタイトル -->
-            <h2 class="section__title">なぜ利用者の8割が「変われた」と実感するのか？</h2>
+            <h2 class="section__title">なぜ30日で変われるのか？</h2>
             <div class="features__grid">
                 <div class="feature">
                     <div class="feature__icon">🎯</div>
-                    <h3 class="feature__title">継続率84%の実績</h3>
-                    <!-- 改善点：具体的成果を数値化 -->
-                    <span class="feature__metric">84%が30日継続</span>
-                    <p class="feature__description">あなた専用AIが最適なタイミングでサポート。一般的なアプリの継続率20%を大幅に上回る実績</p>
+                    <h3 class="feature__title">個別最適化AI</h3>
+                    <p class="feature__description">あなたの性格・生活パターンを学習し、最適なタイミングでサポート</p>
                 </div>
                 <div class="feature">
                     <div class="feature__icon">⚡</div>
-                    <h3 class="feature__title">忘れても大丈夫システム</h3>
-                    <span class="feature__metric">自動リマインド機能</span>
-                    <p class="feature__description">未報告を検知して優しくプッシュ。「うざい」ではなく「ありがたい」と評価される絶妙なタイミング</p>
+                    <h3 class="feature__title">自動リマインド機能</h3>
+                    <p class="feature__description">忘れても大丈夫。AIが絶妙なタイミングで優しくプッシュ通知</p>
                 </div>
                 <div class="feature">
                     <div class="feature__icon">📊</div>
-                    <h3 class="feature__title">成長の見える化</h3>
-                    <span class="feature__metric">平均実行日数23日</span>
-                    <p class="feature__description">習慣スコアで日々の成長が数値で見える。小さな進歩も見逃さず、自信につなげます</p>
+                    <h3 class="feature__title">習慣スコア可視化</h3>
+                    <p class="feature__description">日々の成長が数値で見える。小さな進歩も見逃さない</p>
                 </div>
                 <div class="feature">
-                    <div class="feature__icon">🛡️</div>
-                    <h3 class="feature__title">完全プライバシー保護</h3>
-                    <span class="feature__metric">SSL暗号化通信</span>
-                    <p class="feature__description">個人データは暗号化して保護。第三者への共有は一切なし。安心してご利用いただけます</p>
+                    <div class="feature__icon">🔒</div>
+                    <h3 class="feature__title">プライバシー完全保護</h3>
+                    <p class="feature__description">個人データは暗号化。第三者への共有は一切なし</p>
                 </div>
             </div>
         </div>
@@ -937,7 +850,7 @@ body {
     <section id="offer" class="offer">
         <div class="container">
             <div class="offer__badge">β版特別価格</div>
-            <h2 class="section__title">今だけ！β版特別オファー</h2>
+            <h2 class="section__title">今だけ特別オファー</h2>
             <div class="offer__pricing">
                 <div class="pricing">
                     <div class="pricing__original">
@@ -960,11 +873,14 @@ body {
                 </div>
                 <div class="benefit">
                     <span class="benefit__icon">✅</span>
-                    <span>先着30名限定特典</span>
+                    <span>先着30名限定</span>
                 </div>
             </div>
             <div class="offer__cta">
-                <button class="btn btn--primary btn--large" data-cta="primary" onclick="handleCTAClick('offer')">今すぐLINEで無料体験を始める</button>
+                <button class="btn btn--primary btn--large" data-cta="primary" onclick="handleCTAClick('offer')">今すぐ無料で体験してみる</button>
+                <div class="beta-counter">
+                    残り枠：<span data-var="beta-count">17</span>名
+                </div>
                 <p class="offer__note">※LINEで友だち追加するだけ。押し売りは一切いたしません</p>
             </div>
         </div>
@@ -1027,10 +943,12 @@ body {
     <!-- Final CTA Section -->
     <section id="cta-bottom" class="cta-bottom">
         <div class="container">
-            <!-- 改善点：未来への期待感を高めるメッセージ -->
-            <h2 class="section__title">30日後、"続けられる人間"になった自分に出会いませんか？</h2>
-            <p class="cta-bottom__description">今日始めれば、来月の今頃には<br>「やりたいこと」が「やれること」に変わっています。</p>
-            <button class="btn btn--primary btn--large" data-cta="primary" onclick="handleCTAClick('final')">今すぐLINEで無料体験を始める</button>
+            <h2 class="section__title">30日後、新しい自分に出会いませんか？</h2>
+            <p class="cta-bottom__description">今日始めれば、来月の今頃には<br>「続けられる人間」になっています。</p>
+            <button class="btn btn--primary btn--large" data-cta="primary" onclick="handleCTAClick('final')">今すぐ無料で体験してみる</button>
+            <div class="beta-counter">
+                残り枠：<span data-var="beta-count">17</span>名
+            </div>
         </div>
     </section>
 
@@ -1096,25 +1014,28 @@ function captureUTMParameters() {
     }
 }
 
-// 改善点：β残枠カウンタを動的に管理（希少性演出）
+// Beta Counter Animation  ←（新しいコード）
 function updateBetaCount() {
+    // 1) 既存の値を localStorage から読む（当日内は固定）
     const KEY = 'beta_left_value';
     const EXP = 'beta_left_expire';
     const now = new Date();
 
+    // その日の終わり（ローカル時間）に期限を設定
     const endOfDay = new Date();
     endOfDay.setHours(23, 59, 59, 999);
 
     let stored = Number(localStorage.getItem(KEY));
     let expire = Number(localStorage.getItem(EXP));
 
-    // 期限切れまたは未設定なら、3〜7の範囲で乱数採用
+    // 2) 期限切れ or 未設定なら、3〜5の範囲で乱数を採用して保存
     if (!stored || !expire || now.getTime() > expire) {
-        stored = Math.floor(Math.random() * 5) + 3; // 3〜7のいずれか
+        stored = Math.floor(Math.random() * 3) + 3; // 3,4,5 のいずれか
         localStorage.setItem(KEY, String(stored));
         localStorage.setItem(EXP, String(endOfDay.getTime()));
     }
 
+    // 3) 表示を更新
     const currentCount = stored;
     window.BETA_LEFT = currentCount;
 
@@ -1124,6 +1045,7 @@ function updateBetaCount() {
 
     return currentCount;
 }
+
 
 // FAQ Toggle Functionality
 function toggleFAQ(button) {
@@ -1154,7 +1076,7 @@ function toggleFAQ(button) {
     }
 }
 
-// 改善点：CTAクリック処理を1クリックでLINE遷移に最適化
+// CTA Click Handler（1クリックでLINE遷移に変更）
 function handleCTAClick(section) {
     trackEvent('cta_click', section);
 
@@ -1165,12 +1087,13 @@ function handleCTAClick(section) {
         if (v && !params.has(k)) params.set(k, v);
     });
 
-    // LINE公式アカウントへの直接遷移
+    // LINE公式アカウントへの遷移URL
     const lineUrl = `/line${params.toString() ? '?' + params.toString() : ''}`;
-    
-    // 同タブで遷移（モバイル最適化）
+
+    // 同タブで遷移（iOSアプリ遷移の安定性を考慮）
     window.location.href = lineUrl;
 }
+
 
 // Success Modal
 function showSuccessModal() {
@@ -1187,7 +1110,10 @@ function showSuccessModal() {
                     .join('&');
                 
                 const lineUrl = `/line${utmString ? '?' + utmString : ''}`;
-                window.location.href = lineUrl;
+                // 新しいタブで開きたいなら
+                window.open(lineUrl, '_blank');
+                // 同タブでよければ
+                // window.location.href = lineUrl;
                 trackEvent('auto_redirect', 'line');
             }
         }, 8000);
@@ -1266,7 +1192,6 @@ document.addEventListener('DOMContentLoaded', function() {
     setupScrollTracking();
     setupMobileCTA();
     
-    // 改善点：5分ごとにカウンタ更新で希少性維持
     setInterval(updateBetaCount, 5 * 60 * 1000);
     trackEvent('page_view', 'landing');
     
