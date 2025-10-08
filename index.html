@@ -42,9 +42,8 @@
 }
 
 :root {
-    /* 白文字でも AA クリア（4.5:1 以上）になる濃いオレンジ */
-    --primary-color: #c2410c;  /* Orange 700 相当：白に対してコントラスト 5.18:1 目安 */
-    --primary-hover: #9a3412;  /* Hover はさらに濃くして操作状態を明確に */
+    --primary-color: #2563eb;
+    --primary-hover: #1d4ed8;
     --secondary-color: #64748b;
     --accent-color: #f59e0b;
     --success-color: #10b981;
@@ -117,15 +116,14 @@ body {
 }
 
 .btn--primary {
-    background: var(--primary-color);
-    color: white;
-    box-shadow: var(--shadow-medium);
+   background-color: #f97316; /* 明るいオレンジ (#f97316 = Orange 500) */
+  color: #fff;
+  border: none;
+  transition: background-color 0.3s ease;
 }
 
 .btn--primary:hover {
-    background: var(--primary-hover);
-    transform: translateY(-1px);
-    box-shadow: var(--shadow-large);
+    background-color: #ea580c; /* Hover時は少し濃いオレンジ (#ea580c = Orange 600) */
 }
 
 .btn--secondary {
