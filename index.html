@@ -571,6 +571,25 @@ body {
     margin-bottom: 2.5rem;
     line-height: 1.6;
 }
+/* === 下部CTAセクションの残り枠配置調整 === */
+.cta-bottom .beta-counter {
+  display: block;               /* 横並び→縦に配置 */
+  background-color: #fee2e2;    /* 淡い赤（優しい印象） */
+  color: #b91c1c;               /* 落ち着いた赤文字 */
+  padding: 0.3rem 0.8rem;       /* コンパクト化 */
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  width: fit-content;           /* テキスト幅にフィット */
+  margin: 1rem auto 1.5rem;     /* ボタンとの間に余白＋中央寄せ */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.cta-bottom .beta-counter span {
+  font-weight: 600;
+  color: #dc2626; /* 数字だけ濃い赤でアクセント */
+}
+
 
 .mobile-cta {
     position: fixed;
