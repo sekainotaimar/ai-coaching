@@ -40,6 +40,24 @@
     padding: 0;
     box-sizing: border-box;
 }
+.hero__badges {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.2rem;
+}
+
+.hero__badges .badge {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 9999px;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+  color: #374151;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
 
 :root {
     --primary-color: #2563eb;
@@ -741,6 +759,13 @@ body {
                         β版残り枠：<span data-var="beta-count" id="betaCount">17</span>名
                     </div>
                 </div>
+                <!-- ▼ ここを新規追加 -->
+                <div class="hero__badges">
+                  <div class="badge">✅ 14日全額返金保証</div>
+                  <div class="badge">🛡️ 押し売り一切なし</div>
+                  <div class="badge">🔒 個人情報完全保護</div>
+                </div>
+                <!-- ▲ 新規追加ここまで -->
                 <!-- 変更点：<button> を <a> に、JSは nav 計測＋#mechanism にスムーズスクロール -->
                 <a class="btn btn--secondary" href="#mechanism" onclick="trackEvent('nav_mechanism','hero')">
                   サービス内容（10秒でわかる）
